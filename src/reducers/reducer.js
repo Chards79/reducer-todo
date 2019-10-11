@@ -1,11 +1,30 @@
 export const initialState = {
     todos: [
         {
-            item: 'Learn about reducers',
+            item: 'Learn React',
             completed: false,
             id: 3892987589,
-            todos: []
-        }
+        },
+        {
+            item: 'Learn about reducers',
+            completed: false,
+            id: 3892987585,
+        },
+        {
+            item: 'Learn Redux',
+            completed: false,
+            id: 3892987586,
+        },
+        {
+            item: 'Learn Async Redux',
+            completed: false,
+            id: 3892987587,
+        },
+        {
+            item: 'Get MVP on Sprint',
+            completed: false,
+            id: 3892987588,
+        },
     ]
 };
 
