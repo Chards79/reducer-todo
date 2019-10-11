@@ -17,14 +17,30 @@ export const reducer = (state, action) => {
                 completed: false,
                 id: Date.now(),
             };
-        case "TOGGLE_COMPLETED":
-            const toggleItem = {};
-        case "CLEAR_COMPLETED":
-            const clearTodo = {};
-
             return {
                 ...state,
                 todos: [...state.todos, newTodo]
+
+            };
+        case "TOGGLE_COMPLETED":
+            let updatedTasks = state.todos.map(item => {
+                if (item.id === action.payload) {
+                    return {
+                        ...item,
+                        completed: !item.completed
+                    };
+                } else {
+                    return item;
+                }
+            });
+            return {
+                ...state,
+                todos: updatedTasks
+            };
+        case "CLEAR_COMPLETED":
+            return {
+                ...state,
+                todos: state.todos.filter(item => !item.completed)
             };
         default:
             return state;

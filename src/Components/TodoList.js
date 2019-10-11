@@ -1,20 +1,12 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import Todo from './Todo';
-import { reducer } from '../reducers/reducer';
 
 const TodoList = props => {
-    const todos = props.todos.todos;
-    const [dispatch] = useReducer(reducer);
-    console.log(props);
-
     return (
-        <div className="todo-list">
-            {todos.map(todo => (
-                <Todo key={todo.id} todo={todo} toggleItem={props.toggleItem} />
+        <div>
+            {props.todos.map(item => (
+                <Todo key={item.id} item={item} toggleCompleted={props.toggleCompleted} />
             ))}
-            <button className="clear-btn" onClick={() => dispatch({ type: "CLEAR_COMPLETED" })}>
-                Clear Completed
-            </button>
         </div>
     );
 };
